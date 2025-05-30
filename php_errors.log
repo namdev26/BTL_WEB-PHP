@@ -1,0 +1,12 @@
+[30-May-2025 19:41:51 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\xampp\htdocs\PHP\home.php:313
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\PHP\home.php on line 313
+[30-May-2025 19:42:37 Europe/Berlin] Lỗi chuẩn bị truy vấn: Unknown column 'birth_date' in 'field list'
+[30-May-2025 19:42:37 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function close() on bool in C:\xampp\htdocs\PHP\home.php:342
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\PHP\home.php on line 342
+[30-May-2025 19:43:06 Europe/Berlin] Lỗi chuẩn bị truy vấn: Unknown column 'birth_date' in 'field list'
+[30-May-2025 19:44:45 Europe/Berlin] PHP Warning:  Undefined variable $prev_month in C:\xampp\htdocs\PHP\home.php on line 282
+[30-May-2025 19:44:45 Europe/Berlin] Lỗi chuẩn bị truy vấn: Unknown column 'birth_date' in 'field list'

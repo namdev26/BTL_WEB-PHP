@@ -1,0 +1,300 @@
+        /* CSS cho phần hoạt động gần đây */
+        .activities-list {
+            margin-top: 15px;
+        }
+        
+        .activity-item {
+            display: flex;
+            align-items: flex-start;
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+            transition: background-color 0.2s;
+        }
+        
+        .activity-item:hover {
+            background-color: #f8f9fa;
+        }
+        
+        .activity-item:last-child {
+            border-bottom: none;
+        }
+        
+        .activity-icon {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background-color: #f0f7ff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            flex-shrink: 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .activity-item:hover .activity-icon {
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+        
+        .activity-icon i {
+            font-size: 20px;
+        }
+        
+        /* Màu sắc cho các biểu tượng */
+        .text-success {
+            color: #fff;
+            background-color: #28a745;
+        }
+        
+        .text-primary {
+            color: #fff;
+            background-color: #007bff;
+        }
+        
+        .text-danger {
+            color: #fff;
+            background-color: #dc3545;
+        }
+        
+        .text-warning {
+            color: #212529;
+            background-color: #ffc107;
+        }
+        
+        .text-info {
+            color: #fff;
+            background-color: #17a2b8;
+        }
+        
+        .text-secondary {
+            color: #fff;
+            background-color: #6c757d;
+        }
+        
+        /* Áp dụng màu sắc cho các loại hoạt động */
+        .activity-icon i.fa-user-plus,
+        .activity-icon i.fa-money-bill-wave,
+        .activity-icon i.fa-check-circle {
+            background-color: #28a745;
+            color: white;
+            padding: 10px;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .activity-icon i.fa-user-edit,
+        .activity-icon i.fa-sign-in-alt {
+            background-color: #007bff;
+            color: white;
+            padding: 10px;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .activity-icon i.fa-user-times {
+            background-color: #dc3545;
+            color: white;
+            padding: 10px;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .activity-icon i.fa-sign-out-alt {
+            background-color: #ffc107;
+            color: #212529;
+            padding: 10px;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .activity-icon i.fa-info-circle {
+            background-color: #6c757d;
+            color: white;
+            padding: 10px;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .activity-details {
+            flex-grow: 1;
+        }
+        
+        .activity-details h3 {
+            margin: 0 0 5px 0;
+            font-size: 14px;
+            font-weight: normal;
+            color: #333;
+        }
+        
+        .activity-details p {
+            margin: 0;
+            font-size: 12px;
+            color: #6c757d;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .activity-time {
+            font-weight: bold;
+        }
+        
+        .activity-user {
+            color: #007bff;
+        }
+        .notification-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background-color: #e74c3c;
+            color: white;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+        }
+        
+        /* CSS cho biểu đồ lương */
+        .salary-chart-container {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            padding: 25px;
+            margin-bottom: 30px;
+            border-left: 5px solid #3498db;
+            transition: all 0.3s ease;
+        }
+        
+        .salary-chart-container:hover {
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+            transform: translateY(-3px);
+        }
+        
+        .salary-chart-container .section-header {
+            border-bottom: 1px solid #f0f0f0;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .salary-chart-container .section-header h2 {
+            font-size: 1.4rem;
+            color: #2c3e50;
+            display: flex;
+            align-items: center;
+        }
+        
+        .salary-chart-container .section-header h2:before {
+            content: '\f201';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            margin-right: 10px;
+            color: #3498db;
+        }
+        
+        .chart-wrapper {
+            height: 350px;
+            margin-top: 20px;
+            position: relative;
+            padding: 10px;
+            background-color: #f9fafc;
+            border-radius: 8px;
+        }
+        
+        /* Birthday Alert Styles */
+        .birthday-alert {
+            background: #fff3e0;
+            border-left: 4px solid #ff9800;
+            border-radius: 4px;
+            padding: 15px 20px;
+            margin: 0 0 20px 0;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        
+        .birthday-icon {
+            font-size: 2.2rem;
+            color: #ff9800;
+            margin-right: 20px;
+            animation: birthday-bounce 1s infinite alternate;
+        }
+        
+        .birthday-content h3 {
+            margin: 0 0 5px 0;
+            color: #e67e22;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+        
+        .birthday-content p {
+            margin: 0 0 8px 0;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+        
+        .birthday-list {
+            list-style: none;
+            padding: 0;
+            margin: 5px 0 0 0;
+        }
+        
+        .birthday-list li {
+            padding: 5px 0;
+            color: #555;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .employee-name {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .birthday-date {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .birthday-list .age {
+            color: #3498db;
+            font-weight: 600;
+            margin-left: 5px;
+        }
+        
+        @keyframes birthday-bounce {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-3px); }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
