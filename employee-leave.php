@@ -61,6 +61,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit_leave'])) {
                                            VALUES (?, 'admin', ?, ?, 'leave_request', ?, ?)";
                     
                     $notify_stmt = $conn->prepare($insert_notification);
+if (!$notify_stmt) {
+    die("Prepare failed: (" . $conn->errno . ") " . $conn->error);
+}
                     $notify_stmt->bind_param("iissi", $admin['id'], $employee_id, $employee_name, $notification_message, $leave_id);
                     $notify_stmt->execute();
                 }

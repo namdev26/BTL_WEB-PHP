@@ -57,6 +57,9 @@ if ($check_table->num_rows > 0) {
     $types .= "i";
     
     $salary_stmt = $conn->prepare($salary_query);
+    if (!$salary_stmt) {
+        die("Prepare failed: (" . $conn->errno . ") " . $conn->error);
+    }
     $salary_stmt->bind_param($types, ...$params);
     $salary_stmt->execute();
     $salary_result = $salary_stmt->get_result();
@@ -78,6 +81,9 @@ foreach ($salary_data as $salary) {
 $years = [];
 $years_query = "SELECT DISTINCT salary_year FROM salary_records WHERE employee_id = ? ORDER BY salary_year DESC";
 $years_stmt = $conn->prepare($years_query);
+if (!$years_stmt) {
+    die("Prepare failed: (" . $conn->errno . ") " . $conn->error);
+}
 $years_stmt->bind_param("s", $employee_code);
 $years_stmt->execute();
 $years_result = $years_stmt->get_result();

@@ -31,7 +31,45 @@ $sql = "CREATE TABLE IF NOT EXISTS users (
     role VARCHAR(20) NOT NULL DEFAULT 'user',
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 )";
+if ($conn->query($sql) !== TRUE) {
+    die("Error creating table: " . $conn->error);
+}
 
+// Create salary_records table if it doesn't exist
+$sql = "CREATE TABLE IF NOT EXISTS salary_records (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    employee_id VARCHAR(50) NOT NULL,
+    salary_year INT NOT NULL,
+    salary_month INT NOT NULL,
+    total_salary DECIMAL(15,2) NOT NULL,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+)";
+if ($conn->query($sql) !== TRUE) {
+    die("Error creating table: " . $conn->error);
+}
+
+// Đảm bảo bảng salary_records có cột salary_month (tránh lỗi khi bảng đã tồn tại nhưng thiếu cột này)
+$check_column = $conn->query("SHOW COLUMNS FROM salary_records LIKE 'salary_month'");
+if ($check_column && $check_column->num_rows == 0) {
+    $alter_sql = "ALTER TABLE salary_records ADD COLUMN salary_month INT NOT NULL AFTER salary_year";
+    if ($conn->query($alter_sql) !== TRUE) {
+        die("Error adding salary_month column: " . $conn->error);
+    }
+}
+
+// Tạo bảng notifications nếu chưa tồn tại
+$sql = "CREATE TABLE IF NOT EXISTS notifications (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    recipient_id INT NOT NULL,
+    recipient_type VARCHAR(20) NOT NULL,
+    sender_id INT NOT NULL,
+    sender_name VARCHAR(100) NOT NULL,
+    type VARCHAR(50) NOT NULL,
+    message TEXT NOT NULL,
+    reference_id INT,
+    is_read TINYINT(1) DEFAULT 0,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+)";
 if ($conn->query($sql) !== TRUE) {
     die("Error creating table: " . $conn->error);
 }

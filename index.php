@@ -72,6 +72,12 @@ $activities_query = "SELECT * FROM activities ORDER BY created_at DESC LIMIT 3";
 $activities_result = $conn->query($activities_query);
 
 // Nếu chưa có hoạt động nào, thêm một số hoạt động mẫu
+$sample_activities = [
+    // [user_id, action, description, created_at]
+    [1, 'login', 'Người dùng 1 đã đăng nhập', date('Y-m-d H:i:s')],
+    [2, 'update', 'Người dùng 2 đã cập nhật hồ sơ', date('Y-m-d H:i:s')],
+    [3, 'logout', 'Người dùng 3 đã đăng xuất', date('Y-m-d H:i:s')],
+];
 if ($activities_result && $activities_result->num_rows == 0) {
     foreach ($sample_activities as $activity) {
         $insert_query = "INSERT INTO activities (user_id, action, description, created_at) VALUES (?, ?, ?, ?)"; 
