@@ -57,6 +57,22 @@ if ($check_column && $check_column->num_rows == 0) {
     }
 }
 
+// Đảm bảo bảng salary_records có đủ các cột lương chi tiết (base_salary, bonus, deductions, notes)
+$columns_to_add = [
+    'base_salary' => "ALTER TABLE salary_records ADD COLUMN base_salary DECIMAL(15,2) NOT NULL AFTER salary_month",
+    'bonus' => "ALTER TABLE salary_records ADD COLUMN bonus DECIMAL(15,2) DEFAULT 0 AFTER base_salary",
+    'deductions' => "ALTER TABLE salary_records ADD COLUMN deductions DECIMAL(15,2) DEFAULT 0 AFTER bonus",
+    'notes' => "ALTER TABLE salary_records ADD COLUMN notes TEXT AFTER total_salary"
+];
+foreach ($columns_to_add as $col => $sql_add) {
+    $check = $conn->query("SHOW COLUMNS FROM salary_records LIKE '$col'");
+    if ($check && $check->num_rows == 0) {
+        if ($conn->query($sql_add) !== TRUE) {
+            die("Error adding $col column: " . $conn->error);
+        }
+    }
+}
+
 // Tạo bảng notifications nếu chưa tồn tại
 $sql = "CREATE TABLE IF NOT EXISTS notifications (
     id INT AUTO_INCREMENT PRIMARY KEY,

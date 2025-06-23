@@ -110,6 +110,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['calculate_salary'])) 
                     VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
                 
                 $insert_stmt = $conn->prepare($insert_query);
+if (!$insert_stmt) {
+    die("Prepare failed: (" . $conn->errno . ") " . $conn->error);
+}
                 $insert_stmt->bind_param("iiiiddds", 
                     $employee_id, 
                     $salary_month, 
